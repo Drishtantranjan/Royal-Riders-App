@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "303197404968",
+    "project_id": "royal-riders-application",
+    "storage_bucket": "royal-riders-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303197404968:android:37c37b9bcbf18986001a1d",
+        "android_client_info": {
+          "package_name": "com.example.royal_riders_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgLG4J9MYPueGTynT4AmhPCIohFuG8cS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
