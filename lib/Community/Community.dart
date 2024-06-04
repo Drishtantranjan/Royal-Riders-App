@@ -89,7 +89,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
 class MyZone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const ZoneScreen();
+    return ZoneScreen();
   }
 }
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../Common_widgets/Button.dart';
-import '../Common_widgets/RideContainer.dart'; // Import Firestore
+import '../Common_widgets/RideContainer.dart';
 
 class MyRidesScreen extends StatelessWidget {
   MyRidesScreen({Key? key}) : super(key: key);
