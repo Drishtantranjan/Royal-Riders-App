@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../Common_widgets/Tab_Index_Line.dart';
 import 'MyRideScreen.dart';
+import 'MyZoneScreen.dart';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({Key? key}) : super(key: key);
