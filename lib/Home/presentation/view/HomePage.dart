@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:royal_riders_application/Community/Community.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -116,7 +117,7 @@ class CommunityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Motorcycle Page'));
+    return CommunityScreen();
   }
 }
 
