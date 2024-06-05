@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_Screen.dart';
 import 'package:royal_riders_application/firebase_options.dart';
-
 import 'home/presentation/view/HomePage.dart';
 
 void main() async {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: SignUp(),
     );
   }
 }
