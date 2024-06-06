@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:royal_riders_application/Common_widgets/Button.dart';
-
 import 'OtpFieldwithLabel.dart';
 import 'SignUp_2.dart';
 import '../../../../../Common_widgets/TextFieldwithLable.dart';
@@ -40,26 +38,6 @@ class _Sign1State extends State<Sign1> {
     super.dispose();
   }
 
-// Future<void> registerWithPhone(){
-// await _authInstance.verifyPhoneNumber(
-//       phoneNumber: phoneNumber,
-//       verificationCompleted: (PhoneAuthCredential credential) async {
-//         ///it execute this block if successful
-//       },
-//       verificationFailed: (FirebaseAuthException exception) async {
-//         ///it execute this block it verification failed. So its good practice to execute alert dialog here
-//       },
-//       codeSent: (String verificationId, int? resendToken) async {
-//         /// verificationId is generated here. So you need to catch it and save to a variable like this:
-//         _verificationID = verificationId;
-//       },
-//       codeAutoRetrievalTimeout: (String verificationId) async {
-//         _verificationID = verificationId;
-//       },
-//       // timeout: const Duration(seconds: 120),
-//     );
-// }
-
   Future<void> _verifyPhoneNumber() async {
     setState(() {
       _resendOTPTimerDuration = 30;
@@ -79,11 +57,7 @@ class _Sign1State extends State<Sign1> {
       codeSent: (String verificationId, int? resendToken) {
         print('otp sent true');
         _verificationId = verificationId;
-        if (_verificationId == null || _verificationId!.isEmpty) {
-          setState(() {
-            _buttonPressed = 1;
-          });
-        }
+
         print(verificationId);
       },
       codeAutoRetrievalTimeout: (String verificationId) {
@@ -93,8 +67,6 @@ class _Sign1State extends State<Sign1> {
       },
     );
   }
-
-  // app-1-303197404968-ios-2d846612b8402880001ald
 
   void _handleVerifyButtonPressed() {
     RegExp phoneNumberRegExp = RegExp(r'^\+[0-9]{12}$');
