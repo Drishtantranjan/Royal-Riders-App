@@ -104,7 +104,7 @@ class _Sign1State extends State<Sign1> {
       await _auth.signInWithCredential(credential);
 
       // Simulate a delay for the loader
-      await Future.delayed(const Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 4));
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const Sign2()),
@@ -120,76 +120,117 @@ class _Sign1State extends State<Sign1> {
     }
   }
 
+  void _showLoader() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    OverlayEntry loader = OverlayEntry(
+      builder: (context) => Center(
+        child: Container(
+          width: 100,
+          height: 100,
+          child: Image.asset('assets/SignUp/loader.gif'),
+        ),
+      ),
+    );
+
+    Overlay.of(context)?.insert(loader);
+
+    Future.delayed(Duration(seconds: 2), () {
+      loader.remove();
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 20.0, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.48),
-            const Text(
-              'Welcome, Sign Up',
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            const SizedBox(height: 3),
-            const Text(
-              'Lets Ride together!',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white),
-            ),
-            const SizedBox(height: 15),
-            TextFieldWithLabel(
-              controller: _phoneController,
-              label: 'Phone Number',
-              keyboardType: TextInputType.phone,
-              onChanged: (value) {
-                setState(() {
-                  _phoneNumberFilled = value.length >= 13;
-                  _phoneNumberError = false;
-                });
-                if (value.length > 12) {
-                  FocusManager.instance.primaryFocus?.unfocus();
-                }
-                if (!value.startsWith("+91")) {
-                  _phoneController.value = TextEditingValue(
-                    text: "+91" + value,
-                    selection:
-                        TextSelection.collapsed(offset: value.length + 4),
-                  );
-                }
-              },
-              errorText: _phoneNumberError ? _phoneNumberErrorMessage : null,
-              errorBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.red),
-              ),
-            ),
-            if (_verificationId.isNotEmpty)
-              Column(
-                children: [
-                  const SizedBox(height: 20),
-                  Otpfieldwithlabel(
-                    label: "Enter OTP",
-                    controller: _otpController,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.48),
+                const Text(
+                  'Welcome, Sign Up',
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                const SizedBox(height: 3),
+                const Text(
+                  'Lets Ride together!',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.white),
+                ),
+                const SizedBox(height: 15),
+                TextFieldWithLabel(
+                  controller: _phoneController,
+                  label: 'Phone Number',
+                  keyboardType: TextInputType.phone,
+                  onChanged: (value) {
+                    setState(() {
+                      _phoneNumberFilled = value.length >= 13;
+                      _phoneNumberError = false;
+                    });
+                    if (value.length > 12) {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    }
+                    if (!value.startsWith("+91")) {
+                      _phoneController.value = TextEditingValue(
+                        text: "+91" + value,
+                        selection:
+                            TextSelection.collapsed(offset: value.length + 4),
+                      );
+                    }
+                  },
+                  errorText:
+                      _phoneNumberError ? _phoneNumberErrorMessage : null,
+                  errorBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
                   ),
-                  const SizedBox(height: 20),
-                ],
-              ),
-            const SizedBox(height: 20),
-            RoundedButton(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              title: _buttonPressed == 0 ? "Send OTP" : "Verify Number",
-              onPressed: _handleVerifyButtonPressed,
+                ),
+                if (_verificationId.isNotEmpty)
+                  Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      Otpfieldwithlabel(
+                        label: "Enter OTP",
+                        controller: _otpController,
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                const SizedBox(height: 20),
+                RoundedButton(
+                  padding: const EdgeInsets.symmetric(horizontal: 0),
+                  title: _buttonPressed == 0 ? "Send OTP" : "Verify Number",
+                  onPressed: () {
+                    _handleVerifyButtonPressed();
+                    _showLoader();
+                  },
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          if (_isLoading)
+            Center(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: Image.asset('assets/SignUp/loader.gif'),
+              ),
+            ),
+        ],
       ),
     );
   }
