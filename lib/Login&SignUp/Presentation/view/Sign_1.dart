@@ -15,13 +15,11 @@ class Sign1 extends StatefulWidget {
 }
 
 class _Sign1State extends State<Sign1> {
-  // ignore: unused_field
   bool _isLoading = false;
   bool _phoneNumberFilled = false;
   bool _phoneNumberError = false;
   String _phoneNumberErrorMessage = '';
   int _buttonPressed = 0;
-  // ignore: unused_field
   int _resendOTPTimerDuration = 30;
   String _verificationId = '';
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -55,10 +53,9 @@ class _Sign1State extends State<Sign1> {
         );
       },
       codeSent: (String verificationId, int? resendToken) {
-        print('otp sent true');
-        _verificationId = verificationId;
-
-        print(verificationId);
+        setState(() {
+          _verificationId = verificationId;
+        });
       },
       codeAutoRetrievalTimeout: (String verificationId) {
         setState(() {
@@ -174,7 +171,7 @@ class _Sign1State extends State<Sign1> {
                 borderSide: BorderSide(color: Colors.red),
               ),
             ),
-            if (_phoneNumberFilled)
+            if (_verificationId.isNotEmpty)
               Column(
                 children: [
                   const SizedBox(height: 20),
