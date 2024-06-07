@@ -6,6 +6,7 @@ import 'package:royal_riders_application/Common_widgets/Button.dart';
 import 'package:royal_riders_application/Home/presentation/view/HomePage.dart';
 import 'package:royal_riders_application/Login&SignUp/Cubit/auth_cubit.dart';
 import 'package:royal_riders_application/Login&SignUp/Cubit/auth_state.dart';
+import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'OtpFieldwithLabel.dart';
 import '../../../../../Common_widgets/TextFieldwithLable.dart';
 
@@ -101,7 +102,7 @@ class _Sign1State extends State<Sign1> {
                     } else if (state is AuthLoggedInState) {
                       Navigator.pushReplacement(
                         context,
-                        CupertinoPageRoute(builder: (context) => HomePage()),
+                        CupertinoPageRoute(builder: (context) => Sign2()),
                       );
                     }
                   },
