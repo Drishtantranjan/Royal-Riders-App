@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:royal_riders_application/Login&SignUp/Cubit/auth_cubit.dart';
+import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.dart';
+import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_Screen.dart';
 import 'package:royal_riders_application/firebase_options.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: SignUp(),
+          home: Sign2(),
         ));
   }
 }
