@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'Sign_1.dart';
 
 class SignUp extends StatelessWidget {
@@ -23,7 +24,7 @@ class SignUp extends StatelessWidget {
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Sign1(),
+          body: Sign2(),
         ),
       ),
     );
