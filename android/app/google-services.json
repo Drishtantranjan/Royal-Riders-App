@@ -12,7 +12,20 @@
           "package_name": "com.example.royal_riders_application"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "303197404968-v9m8n6ihb8jc7ok31cv5akts1qnsjg0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.royal_riders_application",
+            "certificate_hash": "7b272c5254f756e116d6543810592174703671c8"
+          }
+        },
+        {
+          "client_id": "303197404968-0hd4h72pn5hpemqg3ejk9uch0bjbv3dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBgLG4J9MYPueGTynT4AmhPCIohFuG8cS8"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303197404968-0hd4h72pn5hpemqg3ejk9uch0bjbv3dc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "303197404968-k0ojo1cideptc8ev0dd8pb0ifg5n65g1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.royalRidersApplication"
+              }
+            }
+          ]
         }
       }
     }
