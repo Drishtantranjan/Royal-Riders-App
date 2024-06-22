@@ -50,8 +50,9 @@ class _Sign2State extends State<Sign2> {
         content: NotificationContent(
             id: 10,
             channelKey: 'basic_channel',
-            title: 'Welcome to Royal Riders',
-            body: 'This is sample test notifications for my app'));
+            title: 'Royal Riders',
+            body:
+                'Welcome to Royal Riders your account has been created sucessfully, gear up for some thrill. Happy to have you on board 😁'));
   }
 
   @override
