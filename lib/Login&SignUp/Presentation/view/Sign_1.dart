@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:royal_riders_application/Common_widgets/Button.dart';
-import 'package:royal_riders_application/Home/presentation/view/HomePage.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_state.dart';
 import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
@@ -19,11 +18,9 @@ class Sign1 extends StatefulWidget {
 
 class _Sign1State extends State<Sign1> {
   bool _isLoading = false;
-  bool _phoneNumberFilled = false;
   bool _phoneNumberError = false;
   bool _showOTPField = false;
   String _phoneNumberErrorMessage = '';
-  int _buttonPressed = 0;
   final TextEditingController _phoneController =
       TextEditingController(text: "+91");
   final TextEditingController _otpController = TextEditingController();
@@ -71,7 +68,6 @@ class _Sign1State extends State<Sign1> {
                   keyboardType: TextInputType.phone,
                   onChanged: (value) {
                     setState(() {
-                      _phoneNumberFilled = value.length >= 13;
                       _phoneNumberError = false;
                     });
                     if (value.length > 12) {
@@ -96,7 +92,6 @@ class _Sign1State extends State<Sign1> {
                   listener: (context, state) {
                     if (state is AuthCodeSentState) {
                       setState(() {
-                        _buttonPressed = 1;
                         _showOTPField = true;
                       });
                     } else if (state is AuthLoggedInState) {
