@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         create: (context) => AuthCubit(),
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'ROYAL RIDERS APP',
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
