@@ -45,42 +45,10 @@ class AuthCubit extends Cubit<AuthState> {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       if (userCredential.user != null) {
-        sendPushNotification();
         emit(AuthLoggedInState(userCredential.user!));
       }
     } on FirebaseAuthException catch (ex) {
       emit(AuthErrorState(ex.message.toString()));
-    }
-  }
-
-  Future<void> sendPushNotification() async {
-    try {
-      final String serverToken = 'YOUR_SERVER_KEY_HERE';
-      final response = await http.post(
-        Uri.parse('https://fcm.googleapis.com/fcm/send'),
-        headers: <String, String>{
-          'Content-Type': 'application/json',
-          'Authorization': 'key=$serverToken',
-        },
-        body: jsonEncode(
-          <String, dynamic>{
-            'notification': <String, dynamic>{
-              'body': 'Account created successfully!',
-              'title': 'Account Creation'
-            },
-            'priority': 'high',
-            'to': await _messaging.getToken(),
-          },
-        ),
-      );
-
-      if (response.statusCode == 200) {
-        print("Notification sent successfully");
-      } else {
-        print("Notification failed to send");
-      }
-    } catch (e) {
-      print("Error sending notification: $e");
     }
   }
 }
