@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:hive/hive.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_state.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_2%20Cubit/sign2_cubit.dart';
-import 'package:royal_riders_application/Login&SignUp/data/hive_model/vehicle_model.dart';
 import 'package:royal_riders_application/home/presentation/view/HomePage.dart';
 import '../../../../../Common_widgets/TextFieldwithLable.dart';
 import '../../../Common_widgets/Button.dart';
