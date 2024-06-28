@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:royal_riders_application/Home/presentation/view/HomePage.dart';
 import 'Sign_1.dart';
 
 class SignUp extends StatelessWidget {
@@ -7,7 +8,7 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -16,14 +17,14 @@ class SignUp extends StatelessWidget {
         ),
       ),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/SignUp/Untitled design.png'),
               fit: BoxFit.fitHeight),
         ),
-        child: Scaffold(
+        child: const Scaffold(
           backgroundColor: Colors.transparent,
-          body: Sign1(),
+          body: HomePage(),
         ),
       ),
     );
