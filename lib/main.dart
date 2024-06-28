@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.dart';
-import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_Screen.dart';
 import 'package:royal_riders_application/Login&SignUp/data/hive_model/vehicle_model.dart';
+import 'package:royal_riders_application/Splash/Splash_Screen.dart';
 import 'package:royal_riders_application/firebase_options.dart';
 
 void main() async {
@@ -17,7 +16,7 @@ void main() async {
   Hive.registerAdapter(VehicleAdapter());
   await Hive.openBox<Vehicle>('vehicleBox');
 
-  AwesomeNotifications().initialize(
+  await AwesomeNotifications().initialize(
       null,
       [
         NotificationChannel(
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const Sign2(),
+          home: SplashScreen(),
         ));
   }
 }
