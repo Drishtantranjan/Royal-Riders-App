@@ -30,7 +30,7 @@ class Sign2 extends StatelessWidget {
               final sign2Cubit = context.read<Sign2Cubit>();
 
               return Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/SignUp/sign2.png'),
                     fit: BoxFit.cover,
@@ -49,7 +49,7 @@ class Sign2 extends StatelessWidget {
                             Container(
                               height: 5,
                               width: MediaQuery.of(context).size.width / 2 - 25,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(20),
@@ -65,7 +65,7 @@ class Sign2 extends StatelessWidget {
                             Container(
                               height: 5,
                               width: MediaQuery.of(context).size.width / 2 - 25,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                   topRight: Radius.circular(20),
@@ -119,7 +119,7 @@ class Sign2 extends StatelessWidget {
                         BlocBuilder<AuthCubit, AuthState>(
                           builder: (context, state) {
                             if (state is AuthLoadingState) {
-                              return Center(
+                              return const Center(
                                 child: CircularProgressIndicator(
                                   color: Colors.white,
                                 ),
@@ -129,6 +129,13 @@ class Sign2 extends StatelessWidget {
                               title: "Create account",
                               onPressed: () {
                                 sign2Cubit.createAccount();
+                                Future.delayed(const Duration(seconds: 2), () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const HomePage()),
+                                  );
+                                });
                               },
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 0),
