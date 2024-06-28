@@ -53,8 +53,11 @@ flutter:
         - asset: assets/Text/George Demo.otf
 
 flutter_native_splash:
-  color: "#FF0000" # Red background color
   android: true
   ios: true
   web: true
-  fullscreen: true
+  background_image: "assets/AppIcon/splash.png"
+  image: "assets/AppIcon/splash_logo.png"
+
+  android_12:
+    image: "assets/AppIcon/splash_logo.png"
