@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:royal_riders_application/Home/presentation/view/HomePage.dart';
 import 'Sign_1.dart';
 
 class SignUp extends StatelessWidget {

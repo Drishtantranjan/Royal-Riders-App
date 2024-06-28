@@ -4,9 +4,10 @@ import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_state.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_2%20Cubit/sign2_cubit.dart';
 import 'package:royal_riders_application/home/presentation/view/HomePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../../Common_widgets/TextFieldwithLable.dart';
 import '../../../Common_widgets/Button.dart';
-import 'dart:ui'; // Import for BackdropFilter
+import 'dart:ui';
 
 class Sign2 extends StatefulWidget {
   const Sign2({Key? key}) : super(key: key);
@@ -17,11 +18,30 @@ class Sign2 extends StatefulWidget {
 
 class _Sign2State extends State<Sign2> {
   bool _isAgreed = false;
+  int? _value;
+
   @override
   void initState() {
     super.initState();
+    _loadToggleValue();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showTermsAndConditionsDialog(context);
+    });
+  }
+
+  _loadToggleValue() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _value = prefs.getInt('toggleValue') ?? 0;
+    });
+  }
+
+  void _toggleValue(int? val) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _value = val;
+      prefs.setInt('toggleValue', _value!);
+      print("Value is : $_value");
     });
   }
 
@@ -135,6 +155,21 @@ class _Sign2State extends State<Sign2> {
                               controller: sign2Cubit.vAgeController,
                             ),
                             const SizedBox(height: 20),
+                            Row(
+                              children: [
+                                Radio(
+                                  value: 1,
+                                  groupValue: _value,
+                                  activeColor: Colors.white,
+                                  onChanged: _toggleValue,
+                                ),
+                                const Text(
+                                  "Remember me",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            const SizedBox(height: 20),
                             BlocBuilder<AuthCubit, AuthState>(
                               builder: (context, state) {
                                 if (state is AuthLoadingState) {
@@ -211,8 +246,11 @@ class _Sign2State extends State<Sign2> {
                   child: ListBody(
                     children: <Widget>[
                       Text(
-                          '1. By using this app, you agree to the collection and use of your vehicle information to improve app functionality and user experience. '),
-                      const SizedBox(height: 10),
+                        '1. By using this app, you agree to the collection and use of your vehicle information to improve app functionality and user experience. ',
+                        textAlign: TextAlign.left,
+                        softWrap: true,
+                      ),
+                      SizedBox(height: 10),
                       Text(
                           '2. Your data will be protected and not shared with third parties without your consent. By proceeding, you acknowledge and accept these terms.'),
                     ],
