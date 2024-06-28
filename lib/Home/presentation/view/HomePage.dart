@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:royal_riders_application/Community/Community.dart';
+import 'package:royal_riders_application/Community/Presentation/view/Community.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

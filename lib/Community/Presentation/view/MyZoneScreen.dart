@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Common_widgets/RideContainer.dart';
+import '../../../Common_widgets/RideContainer.dart';
 
 class ZoneScreen extends StatelessWidget {
   const ZoneScreen({super.key});

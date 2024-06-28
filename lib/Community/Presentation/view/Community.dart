@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Common_widgets/Tab_Index_Line.dart';
+import 'package:royal_riders_application/Common_widgets/Tab_Index_Line.dart';
 import 'MyRideScreen.dart';
 import 'MyZoneScreen.dart';
 
