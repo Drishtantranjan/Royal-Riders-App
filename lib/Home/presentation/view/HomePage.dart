@@ -30,11 +30,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0XFF151414),
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(40),
+        preferredSize: const Size.fromHeight(55),
         child: AppBar(
-          title: SvgPicture.asset(
-            "assets/HomePage/ROYAL RIDERS.svg",
-            width: 150,
+          centerTitle: true,
+          title: const Text(
+            'Royal Riders',
+            style: TextStyle(
+              fontFamily: 'GeorgeDemo',
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.5,
+              color: Colors.red,
+            ),
           ),
           backgroundColor: Colors.black,
         ),
