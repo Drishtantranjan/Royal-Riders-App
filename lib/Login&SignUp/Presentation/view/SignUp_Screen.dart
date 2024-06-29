@@ -24,7 +24,7 @@ class SignUp extends StatelessWidget {
         ),
         child: const Scaffold(
           backgroundColor: Colors.transparent,
-          body: HomePage(),
+          body: Sign1(),
         ),
       ),
     );
