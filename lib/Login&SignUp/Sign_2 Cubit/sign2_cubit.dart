@@ -1,5 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:royal_riders_application/Login&SignUp/data/hive_model/vehicle_model.dart';
@@ -38,6 +39,7 @@ class Sign2Cubit extends Cubit<void> {
   }
 
   Future<void> createAccount() async {
+    // Save to Hive
     final box = Hive.box<Vehicle>('vehicleBox');
     final vehicle = Vehicle(
       name: nameController.text,
@@ -48,6 +50,17 @@ class Sign2Cubit extends Cubit<void> {
       age: vAgeController.text,
     );
     await box.add(vehicle);
+
+    // Save to Firestore
+    await FirebaseFirestore.instance.collection('users').add({
+      'name': vehicle.name,
+      'registrationNumber': vehicle.registrationNumber,
+      'modelNumber': vehicle.modelNumber,
+      'color': vehicle.color,
+      'nickname': vehicle.nickname,
+      'age': vehicle.age,
+      'bookmarkRides': [], // Initialize bookmarkRides with an empty list
+    });
 
     // Print vehicle details to console
     print("Vehicle Details:");
