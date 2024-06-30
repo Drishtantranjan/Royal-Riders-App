@@ -28,7 +28,6 @@ class _Sign1State extends State<Sign1> {
 
   @override
   void dispose() {
-    _phoneController.dispose();
     _otpController.dispose();
     _otpFocusNode.dispose();
     super.dispose();
