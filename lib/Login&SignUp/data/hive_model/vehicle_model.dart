@@ -30,4 +30,28 @@ class Vehicle extends HiveObject {
     required this.nickname,
     required this.age,
   });
+
+  // Convert Vehicle object to a map for Firestore
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'registrationNumber': registrationNumber,
+      'modelNumber': modelNumber,
+      'color': color,
+      'nickname': nickname,
+      'age': age,
+    };
+  }
+
+  // Create a Vehicle object from a map
+  factory Vehicle.fromMap(Map<String, dynamic> map) {
+    return Vehicle(
+      name: map['name'],
+      registrationNumber: map['registrationNumber'],
+      modelNumber: map['modelNumber'],
+      color: map['color'],
+      nickname: map['nickname'],
+      age: map['age'],
+    );
+  }
 }
