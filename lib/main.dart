@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:royal_riders_application/Home/presentation/view/HomePage.dart';
-import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_Screen.dart';
 import 'package:royal_riders_application/Login&SignUp/Sign_1%20Cubit/auth_cubit.dart';
 import 'package:royal_riders_application/Login&SignUp/data/hive_model/vehicle_model.dart';
