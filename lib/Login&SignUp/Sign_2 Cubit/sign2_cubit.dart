@@ -11,6 +11,7 @@ class Sign2Cubit extends Cubit<void> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController vRegistrationController = TextEditingController();
   final TextEditingController vModelController = TextEditingController();
+  final TextEditingController vModelNameController = TextEditingController();
   final TextEditingController vColorController = TextEditingController();
   final TextEditingController vNameController = TextEditingController();
   final TextEditingController vAgeController = TextEditingController();
@@ -21,6 +22,7 @@ class Sign2Cubit extends Cubit<void> {
     vRegistrationController.dispose();
     vModelController.dispose();
     vColorController.dispose();
+    vModelNameController.dispose();
     vNameController.dispose();
     vAgeController.dispose();
     return super.close();
@@ -45,6 +47,7 @@ class Sign2Cubit extends Cubit<void> {
       name: nameController.text,
       registrationNumber: vRegistrationController.text,
       modelNumber: vModelController.text,
+      modelName: vModelNameController.text,
       color: vColorController.text,
       nickname: vNameController.text,
       age: vAgeController.text,
@@ -55,6 +58,7 @@ class Sign2Cubit extends Cubit<void> {
     await FirebaseFirestore.instance.collection('users').add({
       'name': vehicle.name,
       'registrationNumber': vehicle.registrationNumber,
+      'modelName': vehicle.modelName,
       'modelNumber': vehicle.modelNumber,
       'color': vehicle.color,
       'nickname': vehicle.nickname,
