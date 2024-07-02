@@ -136,6 +136,11 @@ class _Sign2State extends State<Sign2> {
                             ),
                             const SizedBox(height: 20),
                             TextFieldWithLabel(
+                              label: 'Vehicle Model Name',
+                              controller: sign2Cubit.vModelNameController,
+                            ),
+                            const SizedBox(height: 20),
+                            TextFieldWithLabel(
                               label: 'Vehicle Model Number',
                               controller: sign2Cubit.vModelController,
                             ),
