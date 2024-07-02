@@ -14,17 +14,21 @@ class Vehicle extends HiveObject {
   String modelNumber;
 
   @HiveField(3)
-  String color;
+  String modelName;
 
   @HiveField(4)
-  String nickname;
+  String color;
 
   @HiveField(5)
+  String nickname;
+
+  @HiveField(6)
   String age;
 
   Vehicle({
     required this.name,
     required this.registrationNumber,
+    required this.modelName,
     required this.modelNumber,
     required this.color,
     required this.nickname,
@@ -36,6 +40,7 @@ class Vehicle extends HiveObject {
     return {
       'name': name,
       'registrationNumber': registrationNumber,
+      'modelName': modelName,
       'modelNumber': modelNumber,
       'color': color,
       'nickname': nickname,
@@ -48,6 +53,7 @@ class Vehicle extends HiveObject {
     return Vehicle(
       name: map['name'],
       registrationNumber: map['registrationNumber'],
+      modelName: map['modelName'],
       modelNumber: map['modelNumber'],
       color: map['color'],
       nickname: map['nickname'],
