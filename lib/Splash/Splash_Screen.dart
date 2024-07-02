@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_2.dart';
 import 'package:royal_riders_application/Login&SignUp/Presentation/view/SignUp_Screen.dart';
-// Replace with your actual home page
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -21,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const SignUp()), // Replace with your actual home page
+                const SignUp()), 
       );
     });
   }
