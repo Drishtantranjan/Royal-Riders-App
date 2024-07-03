@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:royal_riders_application/Community/Presentation/view/Community.dart';
+import 'package:royal_riders_application/Service/presentation/view/ServicePage.dart';
 import 'package:royal_riders_application/motorcycle/presentation/view/motorcycle_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -151,6 +152,6 @@ class ServicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Service Page'));
+    return Servicepage();
   }
 }
