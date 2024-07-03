@@ -17,14 +17,14 @@ class Sign1 extends StatefulWidget {
 }
 
 class _Sign1State extends State<Sign1> {
-  bool _isLoading = false;
+  final bool _isLoading = false;
   bool _phoneNumberError = false;
   bool _showOTPField = false;
-  String _phoneNumberErrorMessage = '';
+  final String _phoneNumberErrorMessage = '';
   final TextEditingController _phoneController =
       TextEditingController(text: "+91");
   final TextEditingController _otpController = TextEditingController();
-  FocusNode _otpFocusNode = FocusNode();
+  final FocusNode _otpFocusNode = FocusNode();
 
   @override
   void dispose() {
@@ -74,7 +74,7 @@ class _Sign1State extends State<Sign1> {
                     }
                     if (!value.startsWith("+91")) {
                       _phoneController.value = TextEditingValue(
-                        text: "+91" + value,
+                        text: "+91$value",
                         selection:
                             TextSelection.collapsed(offset: value.length + 4),
                       );
@@ -96,13 +96,13 @@ class _Sign1State extends State<Sign1> {
                     } else if (state is AuthLoggedInState) {
                       Navigator.pushReplacement(
                         context,
-                        CupertinoPageRoute(builder: (context) => Sign2()),
+                        CupertinoPageRoute(builder: (context) => const Sign2()),
                       );
                     }
                   },
                   builder: (context, state) {
                     if (state is AuthLoadingState) {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(
                           color: Colors.white,
                         ),
@@ -146,7 +146,7 @@ class _Sign1State extends State<Sign1> {
           ),
           if (_isLoading)
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 100,
                 height: 100,
                 child: Image.asset('assets/SignUp/loader.gif'),
