@@ -10,7 +10,7 @@ import '../../../Common_widgets/Button.dart';
 import 'dart:ui';
 
 class Sign2 extends StatefulWidget {
-  const Sign2({Key? key}) : super(key: key);
+  const Sign2({super.key});
 
   @override
   _Sign2State createState() => _Sign2State();
@@ -41,7 +41,6 @@ class _Sign2State extends State<Sign2> {
     setState(() {
       _value = val;
       prefs.setInt('toggleValue', _value!);
-      print("Value is : $_value");
     });
   }
 
